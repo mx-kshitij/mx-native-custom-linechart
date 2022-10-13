@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget
+    id="mendix.customnativelinechart.CustomNativeLineChart"
+    pluginWidget="true"
+    needsEntityContext="true"
+    offlineCapable="true"
+    supportedPlatform="Native"
+    xmlns="http://www.mendix.com/widget/1.0/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd"
+>
+    <name>Custom Native Line Chart</name>
+    <description>Custom native line chart</description>
+    <icon />
+    <properties>
+        <propertyGroup caption="General">
+            <property key="labelsData" type="datasource" isList="true" required="true">
+                <caption>Labels</caption>
+                <description />
+            </property>
+            <property key="labelAttribute" type="attribute" required="true" dataSource="labelsData">
+                <caption>Label attribute</caption>
+                <description />
+                <attributeTypes>
+                    <attributeType name="Decimal" />
+                    <attributeType name="Integer" />
+                    <attributeType name="Long" />
+                    <attributeType name="String" />
+                    <attributeType name="DateTime" />
+                </attributeTypes>
+            </property>
+            <property key="dataList" type="object" isList="true">
+                <caption>Data</caption>
+                <description />
+                <properties>
+                    <propertyGroup caption="General">
+                        <property key="data" type="datasource" isList="true" required="true">
+                            <caption>Labels</caption>
+                            <description />
+                        </property>
+                        <property key="dataAttribute" type="attribute" required="true" dataSource="data">
+                            <caption>Label attribute</caption>
+                            <description />
+                            <attributeTypes>
+                                <attributeType name="Decimal" />
+                                <attributeType name="Integer" />
+                                <attributeType name="Long" />
+                                <attributeType name="DateTime" />
+                            </attributeTypes>
+                        </property>
+                        <property key="legend" type="textTemplate">
+                            <caption>Legend</caption>
+                            <description />
+                        </property>
+                        <property key="color" type="textTemplate">
+                            <caption>Color</caption>
+                            <description>Set to '#000' if not sure</description>
+                        </property>
+                    </propertyGroup>
+                </properties>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Options">
+            <property key="showBGLines" type="boolean" defaultValue="false">
+                <caption>Show background lines</caption>
+                <description />
+            </property>
+            <property key="bezier" type="boolean" defaultValue="false">
+                <caption>Bezier</caption>
+                <description />
+            </property>
+            <property key="alwaysShowZero" type="boolean" defaultValue="false">
+                <caption>Always show 0</caption>
+                <description />
+            </property>
+            <property key="showDots" type="boolean" defaultValue="false">
+                <caption>Show dots</caption>
+                <description />
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Styling">
+            <propertyGroup caption="Height">
+                <property key="chartHeight" type="integer" defaultValue="300">
+                    <caption>Height</caption>
+                    <description />
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Background">
+                <property key="bgFrom" type="textTemplate">
+                    <caption>BG gradient from</caption>
+                    <description>Set to '#FFF' if not sure</description>
+                </property>
+                <property key="bgTo" type="textTemplate">
+                    <caption>BG gradient to</caption>
+                    <description>Set to '#FFF' if not sure</description>
+                </property>
+                <property key="bgFromOpacity" type="decimal" defaultValue="100" required="true">
+                    <caption>Gradient opacity from</caption>
+                    <description>Must be between 0 and 100. Set to 100 if not sure.</description>
+                </property>
+                <property key="bgToOpacity" type="decimal" defaultValue="100" required="true">
+                    <caption>Gradient opacity to</caption>
+                    <description>Must be between 0 and 100. Set to 100 if not sure.</description>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Stroke">
+                <property key="strokeWidth" type="integer" defaultValue="3">
+                    <caption>Stroke width</caption>
+                    <description>Set to 3 if empty</description>
+                </property>
+                <property key="strokeColor" type="textTemplate">
+                    <caption>Stroke color</caption>
+                    <description>Set to '#000' if not sure</description>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Label">
+                <property key="labelColor" type="textTemplate">
+                    <caption>Label color</caption>
+                    <description>Set to '#000' if not sure</description>
+                </property>
+            </propertyGroup>
+        </propertyGroup>
+    </properties>
+</widget>
