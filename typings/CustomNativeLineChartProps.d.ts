@@ -31,6 +31,8 @@ export interface CustomNativeLineChartProps<Style> {
     bezier: boolean;
     alwaysShowZero: boolean;
     showDots: boolean;
+    showYAxisInteger: boolean;
+    segmentCount: DynamicValue<string>;
     chartHeight: number;
     bgFrom: DynamicValue<string>;
     bgTo: DynamicValue<string>;
@@ -39,6 +41,7 @@ export interface CustomNativeLineChartProps<Style> {
     strokeWidth: number;
     strokeColor: DynamicValue<string>;
     labelColor: DynamicValue<string>;
+    bgLineColor: DynamicValue<string>;
 }
 
 export interface CustomNativeLineChartPreviewProps {
@@ -53,6 +56,8 @@ export interface CustomNativeLineChartPreviewProps {
     bezier: boolean;
     alwaysShowZero: boolean;
     showDots: boolean;
+    showYAxisInteger: boolean;
+    segmentCount: string;
     chartHeight: number | null;
     bgFrom: string;
     bgTo: string;
@@ -61,4 +66,5 @@ export interface CustomNativeLineChartPreviewProps {
     strokeWidth: number | null;
     strokeColor: string;
     labelColor: string;
+    bgLineColor: string;
 }

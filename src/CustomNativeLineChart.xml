@@ -77,6 +77,14 @@
                 <caption>Show dots</caption>
                 <description />
             </property>
+            <property key="showYAxisInteger" type="boolean" defaultValue="false">
+                <caption>Show integers on y axis</caption>
+                <description />
+            </property>
+            <property key="segmentCount" type="textTemplate">
+                <caption>Segments</caption>
+                <description>Should be integer (as string) eg. '5' or '8' or '14'</description>
+            </property>
         </propertyGroup>
         <propertyGroup caption="Styling">
             <propertyGroup caption="Height">
@@ -116,6 +124,12 @@
             <propertyGroup caption="Label">
                 <property key="labelColor" type="textTemplate">
                     <caption>Label color</caption>
+                    <description>Set to '#000' if not sure</description>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Background lines">
+                <property key="bgLineColor" type="textTemplate">
+                    <caption>BG line color</caption>
                     <description>Set to '#000' if not sure</description>
                 </property>
             </propertyGroup>

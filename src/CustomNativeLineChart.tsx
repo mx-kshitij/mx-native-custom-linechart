@@ -25,9 +25,12 @@ export function CustomNativeLineChart({
     strokeColor,
     labelColor,
     showBGLines,
+    bgLineColor,
     bezier,
     alwaysShowZero,
-    showDots
+    showDots,
+    showYAxisInteger,
+    segmentCount
 }: CustomNativeLineChartProps<CustomStyle>): ReactElement {
 
     if (labelsData === undefined || labelAttribute === undefined || dataList === undefined || labelsData.status != ValueStatus.Available) return <View />
@@ -52,7 +55,7 @@ export function CustomNativeLineChart({
             //Iterate over data points to generate series array 
             dataSetSource?.map(item => {
                 var value = dataSet.dataAttribute.get(item).value;
-                if (value) data.push(value.toString());
+                if (value) data.push(value);
             })
             //Get color
             var color : string | undefined = dataSet.color.value?.toString(); 
@@ -105,7 +108,8 @@ export function CustomNativeLineChart({
         strokeWidth: strokeWidth? strokeWidth : 3,
         useShadowColorFromDataset: false,
         propsForBackgroundLines:{
-            strokeWidth: showBGLines ? "1" : "0"
+            strokeWidth: showBGLines ? "1" : "0",
+            stroke: bgLineColor ? bgLineColor.value : "#ccc"
         }
     };
 
@@ -113,6 +117,14 @@ export function CustomNativeLineChart({
     const onOuterViewLayout = (event: any) => {
         var { width } = event.nativeEvent.layout;
         setChartWidth(width);
+    }
+
+    //Function to format the y axis labels
+    const formatYLabel = (value: any) => {
+        if(showYAxisInteger)
+            return parseInt(value);
+        else
+            return value;
     }
 
     //Function to load the chart
@@ -133,6 +145,8 @@ export function CustomNativeLineChart({
                     fromZero={alwaysShowZero}
                     bezier={bezier}
                     withDots={showDots}
+                    formatYLabel={val => formatYLabel(val)}
+                    segments = {segmentCount.value ? parseInt(segmentCount.value.toString()) : 5}
                 />)
         }
         else {
